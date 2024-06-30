@@ -1,0 +1,317 @@
+---
+title: "Ciencia de datos aplicada a las políticas públicas territoriales"
+subtite: "Machine learning para la valuación inmobiliaria en la Provincia de Córdoba"
+format: 
+  revealjs:
+    theme: jpc.scss
+    scrollable: true
+editor: visual
+author:
+  - name: "Juan Pablo Carranza"
+    id: jb
+    orcid: 0000-0003-4793-1323
+    email: juan.carranza@unc.edu.ar
+    affiliation: 
+      - name: IIFAP, Facultad de Ciencias Sociales, Universidad Nacional de Córdoba
+        city: Córdoba, Argentina
+        url: https://sociales.unc.edu.ar/iifap
+
+logo: /content/logo.png
+footer: "Juan Pablo Carranza"
+licence: "CC BY-NC-SA" 
+bibliography: references.bib
+title-slide-attributes: 
+  data-footer: "CC BY-SA"
+include-after-body: add-custom-footer.html
+citation: true
+---
+
+# 
+
+**Machine learning para la valuación inmobiliaria en la Provincia de Córdoba**
+
+Estado de situación inicial:
+
+-   Valuaciones inmobiliarias sin actualizarse durante los últimos 30 años.
+
+    -   Pérdida de capacidad fiscal en un impuesto menos nocivo que Ingresos Brutos.
+
+    -   Inequidad vertical y horizonal.
+
+-   Ausencia de personal calificado para realizar la tarea en la Administración Pública, incluso bajo un enfoque tradicional.
+
+# 
+
+Algunas consideraciones sobre **equidad tributaria**.
+
+```{=html}
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d65408.930347894086!2d-64.18504984705501!3d-31.40759145443742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sar!4v1719704312586!5m2!1ses!2sar"
+width="1200" 
+height="600"
+style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+```
+# 
+
+**Objetivo**
+
+Desarrollar un modelo valuatorio dinámico y replicable, que permita expresar las valuaciones fiscales de los inmuebles a niveles de mercado.
+
+<br></br>
+
+**Estrategia**
+
+Implementar modelos predictivos para conocer el precio de mercado de los inmuebles a partir de observaciones de mercado.
+
+# 
+
+**Primera aproximación... Estadística "clásica"**:
+
+-   Modelos lineales generalizados.
+
+-   Modelos con corrección por dependencia espacial [@anselin].
+
+-   Modelos con corrección por heterogeneidad espacial [@brunsdon1996].
+
+-   Modelos geoestadísticos [@krige1951].
+
+**Not good!** Los modelos lineales generalizan mal hacia afuera de la muestra [@kleinberg2015]
+
+# 
+
+**Solución potencial**.
+
+Modelos de machine learning: sesgo 🔄 varianza.
+
+<br></br>
+
+**¿Por qué no Deep Learning, si está de moda?**
+
+-   Pocos datos, pocas features.
+
+-   Para problemas con datos tabulares, ML \> DL [@Grinsztajn]
+
+# 
+
+**Paso 1**: Relevar una muestra de mercado de inmuebles en venta o vendidos.
+
+<!-- [![Observatorio del Mercado Inmobiliario (OMI)](content/omi.png){fig-align="center"}](https://omi.mapascordoba.gob.ar/spa/#/) -->
+
+```{=html}
+  <iframe
+    src="https://mapascordoba.gob.ar/viewer/embed/mapa/497"
+    width="1500"
+    height="570"
+    >
+  </iframe>
+```
+# 
+
+**Paso 2**: Calcular features o variables independientes.
+
+-   **Distancias** a hitos urbanos (categorización vial, ejes comerciales, barrios cerrados, villas y asentamientos, rios, entre otras).
+
+-   Características del **entorno** (Cantidad de m^2^ edificacados, cantidad de baldíos, tamaño promedio de lotes, diferentes índices calculados a partir de la clasificación automática de imágenes satelitales, entre otras).
+
+# 
+
+**Paso 3**: Expresar la muestra en términos comparables.
+
+Aplicación de técnicas de estadística espacial [@anselin] (modelos lineales espacialmente autorregresivos), para descontar efectos de:
+
+::: columns
+::: {.column width="50%"}
+-   Superficie.
+
+-   Metros de frente.
+
+-   Forma (modelo de clasificación supervisada).
+
+-   Ubicación en la Cuadra.
+:::
+
+::: {.column width="50%"}
+-   Situación jurídica.
+
+-   Margen de negociación.
+
+-   Tipo de cambio (tiempo).
+:::
+:::
+
+# 
+
+**Resultados**[^1]. Para ampliar, ver [@cerino2020] y [@bullano2020]
+
+[^1]: A partir de estos parámetros se deben calcular, previamente los efectos directos e indirectos dados por el spillover espacial. Ver [@golgher2016]
+
+```{r}
+load("sac (1).Rda")
+library(spatialreg)
+options(scipen = 0)
+print(summary(regresion), digits = 4)
+```
+
+# 
+
+**Paso 4**: Clusterización del espacio urbano.
+
+Algoritmo aplicado ➡️ Fuzzy c-Means [@bezdek84]
+
+```{r}
+r = terra::rast("clusters.tif")
+names(r) <- "Nro"
+Cluster = raster::raster(r)
+mapview::mapviewOptions(basemaps = c("Esri.WorldImagery"))
+mapview::mapview(Cluster, maxpixels = 5829768/2, alpha.regions = 0.7,
+                 na.color = "transparent", col.regions = RColorBrewer::brewer.pal(12, "Set3"))
+
+```
+
+# 
+
+**Paso 5**: Entrenamiento de algoritmos de ML.
+
+Se entrenan los siguientes algoritmos mediante un proceso de validación cruzada en 10 folds.
+
+-   Quantile Regression Forest - QRF [@meinshausen2006]
+
+-   Gradient Boosting Machine - GBM [@friedman2001]
+
+-   Support Vector Regression - SVR [@svr]
+
+-   Machine Learning Ensemble - EML: GLM = $f$(QRF, GBM, SVR)
+
+<!-- -->
+
+##  {.scrollable}
+
+**Paso 6**: Validación del nivel de error por sector de la ciudad (clusters)
+
+```{r}
+load("~/Documentos/Tesis/2023/procesado en la nube/datos_actualizados.Rda")
+datos = data.frame(Cluster = c("Zona 0",
+                               "Zona 1",
+                               "Zona 2",
+                               "Zona 3",
+                               "Zona 4",
+                               "Zona 5",
+                               "Zona 6",
+                               "Zona 7",
+                               "Zona 8",
+                               "Zona 9",
+                               "Zona 10",
+                               "Zona 11",
+                               "Zona 12"),
+                   Modelo = c("QRF",
+                              "QRF",
+                              "QRF",
+                              "QRF",
+                              "EML",
+                              "QRF",
+                              "QRF",
+                              "QRF",
+                              "EML",
+                              "QRF",
+                              "QRF",
+                              "QRF",
+                              "SVR"),
+                   MAPE = c(0.190,
+                            0.106,
+                            0.090,
+                            0.255,
+                            0.142,
+                            0.100,
+                            0.107,
+                            0.110,
+                            0.135,
+                            0.087,
+                            0.100,
+                            0.114,
+                            0.118))
+kableExtra::kable(datos)
+```
+
+# 
+
+**Paso 7**: Interpolación a nivel de parcelas urbanas.
+
+```{=html}
+  <iframe
+    src="https://mapascordoba.gob.ar/viewer/embed/mapa/468"
+    width="1200"
+    height="600"
+    >
+  </iframe>
+```
+# 
+
+**Replicabilidad del modelo valuatorio**. Alternativa con datos abiertos en Fortaleza (BR).
+
+Ver [@carranza2022].
+
+![](fortaleza.jpg){fig-align="center"}
+
+# 
+
+**Aplicaciones adicionales** al uso fiscal:
+
+-   Captura de plusvalías.
+-   Internalización de costos ambientales.
+-   Políticas de acceso al suelo.
+-   Puesta en valor de espacios urbanos en decadencia.
+-   Información abierta, mercados inmobiliarios más eficientes.
+-   Insumo para el acceso al crédito hipotecario.
+
+# 
+
+**Otras aplicaciones a políticas públicas territoriales**:
+
+::: columns
+::: {.column width="50%"}
+-   Alquileres urbanos.
+
+-   Precios de la tierra rural.
+
+-   Rendimientos agropecuarios.
+
+-   Calidad de suelos rurales.
+
+-   Cobertura de suelos urbanos y rurales.
+
+-   Arrendamientos rurales.
+
+Ver en la web de [IDECOR](https://mapascordoba.gob.ar/)
+:::
+
+::: {.column width="50%"}
+```{=html}
+  <iframe
+    src="https://mapascordoba.gob.ar/viewer/embed/mapa/469"
+    width="500"
+    height="600"
+    >
+  </iframe>
+```
+:::
+:::
+
+# 
+
+**Dónde ampliar?**
+
+Quantile Regression Forest y Mapas de calidad de la predicción [@córdoba2021]
+
+Modelo valuatorio basado en datos abiertos [@carranza2022]
+
+Aplicación a la ciudad de San Francisco [@carranza2019]
+
+Aplicación a sectores turísticos de Córdoba [@cerino2021]
+
+# 
+
+**Referencias.**
+
+::: {#refs}
+:::
