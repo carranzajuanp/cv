@@ -12,7 +12,7 @@ date: "`r format(Sys.time(), '%B %Y')`"
 
 aboutme: "Soy Economista, con formación de posgrado en Administración y Política Pública. Durante mi carrera he tenido la posibilidad de gestionar proyectos trascendentales, integrados por personas altamente calificadas, tanto en el ámbito de la educación de grado y posgrado, como en la búsqueda de eficiencia y equidad en la política fiscal de los gobiernos subnacionales de América Latina."
 
-output: vitae::awesomecv
+output: html_document
 ---
 
 # Acerca de mí
