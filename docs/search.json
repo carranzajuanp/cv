@@ -1,9 +1,0 @@
-[
-  {
-    "objectID": "charla.html#section-11",
-    "href": "charla.html#section-11",
-    "title": "Ciencia de datos aplicada a las políticas públicas territoriales",
-    "section": "",
-    "text": "Paso 6: Validación del nivel de error por sector de la ciudad (clusters)\n\n\n\n\n\nCluster\nModelo\nMAPE\n\n\n\n\nZona 0\nQRF\n0.190\n\n\nZona 1\nQRF\n0.106\n\n\nZona 2\nQRF\n0.090\n\n\nZona 3\nQRF\n0.255\n\n\nZona 4\nEML\n0.142\n\n\nZona 5\nQRF\n0.100\n\n\nZona 6\nQRF\n0.107\n\n\nZona 7\nQRF\n0.110\n\n\nZona 8\nEML\n0.135\n\n\nZona 9\nQRF\n0.087\n\n\nZona 10\nQRF\n0.100\n\n\nZona 11\nQRF\n0.114\n\n\nZona 12\nSVR\n0.118"
-  }
-]
