@@ -1,0 +1,15 @@
+---
+title: ""
+editor: visual
+bibliography: congresos.bib
+---
+
+### Publicaciones en congresos.
+
+---
+nocite: |
+  @*
+---
+
+::: {#refs}
+:::

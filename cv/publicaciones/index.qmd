@@ -1,0 +1,15 @@
+---
+title: ""
+editor: visual
+bibliography: journals.bib
+---
+
+### Artículos publicados en revistas.
+
+---
+nocite: |
+  @*
+---
+
+::: {#refs}
+:::

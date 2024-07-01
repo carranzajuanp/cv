@@ -1,0 +1,16 @@
+---
+title: ""
+editor: visual
+bibliography: reportes.bib
+---
+
+### Divulgación cientítfica.
+
+---
+nocite: |
+  @*
+---
+
+::: {#refs}
+:::
+

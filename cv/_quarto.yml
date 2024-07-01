@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  page-navigation: true
+  title: "Hola! :)"
+
+  page-footer:
+    left: "&copy; Copyright 2022, Juan Pablo Carranza"
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+      - href: publicaciones/index.qmd
+        text: Artículos científicos
+        
+      - href: congresos/index.qmd
+        text: Publicaciones en congresos
+        
+      - href: divulgacion/index.qmd
+        text: Divulgación de la ciencia
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

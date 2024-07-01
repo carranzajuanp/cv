@@ -1,0 +1,57 @@
+---
+title: "Juan Pablo Carranza"
+image: foto2.png
+about:
+  id: hero-heading
+  template: trestles
+  image-shape: round
+  links:
+    - icon: twitter
+      text: carranzajuanp
+      href: https://twitter.com/carranzajuanp
+    - icon: linkedin
+      text: carranzajuanp
+      href: https://ar.linkedin.com/in/juan-pablo-carranza-73666923
+    - icon: github
+      text: carranzajuanp
+      href: https://github.com/carranzajuanp
+---
+
+::: {#hero-heading}
+Soy Economista, con formación de posgrado en Administración y Política Pública. Durante mi carrera he tenido la posibilidad de gestionar proyectos trascendentales, integrados por personas altamente calificadas, tanto en el ámbito de la educación de grado y posgrado, como en la búsqueda de eficiencia y equidad en la política fiscal de los gobiernos subnacionales de América Latina.
+
+En el ámbito profesional, me he desempeñado como Consultor de diversos organismos multinacionales para la implementación de políticas de valuación de inmuebles mediante la aplicación de técnicas de aprendizaje computacional. También he asesorado sobre el acceso a oportunidades urbanas y al desarrollo como motor de ciudades más equitativas.
+
+Tengo la enorme suerte de ser docente universitario, tanto en el grado, en donde me desempeño como Profesor Adjunto de Estadística II en la Facultad de Ciencias Sociales de la Universidad Nacional de Córdoba, para estudiantes de las Licenciaturas en Ciencia Política y en Sociología. Además, dicto diferentes cursos de posgrado vinculados a la aplicación de metodologías cuantitativas a las políticas públicas.
+
+### Educación
+:::
+
+-   **Doctor en Administración y Politica Pública** (tesis presentada) por la Facultad de Ciencias Sociales de la Universidad Nacional de Cordoba.
+
+```{=html}
+<!-- -->
+```
+-   **Magister en Administracion Publica** por la Facultad de Ciencias Sociales de la Universidad Nacional de Cordoba.
+
+-   **Licenciado en Economía** por la Facultad de Ciencias Económicas de la Universidad Nacional de Cordoba.
+
+### Experiencia laboral (últimos 10 años)
+
+(2022 - actualmente) **Coordinador General del Programa de Inteligencia Institucional de la Universidad Nacional de Cordoba**: A cargo de la implementacion del programa Unviersidad Abierta, que busca la apertura de informacion pública en la institucion y, simultaneamente, de la construccion de tableros de control para la gestion de las diferentes unidades academicas que la integran.
+
+(2020 - actualmente) **Coordinador Académico de la Maestría en Administración Pública** del Instituto de Investigación y Formación en Administración Pública (IIFAP) de la Facultad de Ciencias Sociales (UNC): A cargo de las designaciones docentes, evaluación y acreditación, y de la gestión integral de la carrera y su relación con los estudiantes. En el año 2022, luego de un esfuerzo relevante, logré la acreditación de la modalidad a distancia de la carrera por parte de CONEAU.
+
+(2020 - actualmente) **Profesor Adjunto** en la Universidad Nacional de Córdoba, Argentina: Profesor de Estadística II para las Licenciaturas en Ciencia Politica y Sociologia de la Facultad de Ciencias Sociales.
+
+(2017 - 2023) **Coordinador del Equipo de Ciencia de Datos** en la Infraestructura de Datos Espaciales de la Provincia de Córdoba, IDECOR: Encargado de liderar un magnífico equipo para estimar los valores del suelo urbano y rural en la provincia de Córdoba, Argentina, utilizando tecnicas de machine learning.
+
+(2022 - 2023) **Consultor del Banco Interamericano de Desarrollo (BID)**: Mi misión consistió en generar información en el contexto del Foro para el Fortalecimiento del Potencial recaudador del Impuesto a la Propiedad de Bienes Inmuebles - Inteligencia Artificial y Big Data, aplicados a la valoración inmobiliaria en Bolivia. Redacción de informes sobre experiencias y metodologías de valuación masiva automatizada.
+
+(2021 - 2022) **Consultor del Banco Interamericano de Desarrollo (BID)**: Mi misión consistió en determinar a nivel nacional la desactualización de las valuaciones fiscales de los inmuebles urbanos en relación con los valores de mercado en Peru. En una segunda etapa, el proyecto incluyó el entrenamiento de un modelo de aprendizaje automatico para predecir el valor de mercado de las propiedades en el área metropolitana de Lima.
+
+(2021 - 2022) **Consultor del Banco de Desarrollo de America Latina (CAF)**: Mi misión consistió en generar informes sobre el acceso a las oportunidades en cinco grandes ciudades latinoamericanas, abarcando aspectos como el suelo vacante, la movilidad, la estructura productiva y el nivel socioeconómico de la poblacion, entre otros. El proyecto incluyó el diseño e implementacion de un algoritmo para determinar la conectividad física de las ciudades y establecer la extensión de los sistemas urbanos a partir de la clasificación automatizada de imágenes satelitales.
+
+(2019 - 2020) **Consultor del Banco de Desarrollo de America Latina (CAF)**: Mi misión consistió en generar un informe sobre el estado del arte en la detección de asentamientos informales a partir de imágenes satelitales, recopilando experiencias, los mejores metodos existentes en la actualidad y los límites de este tipo de iniciativas cuando son aplicadas como instrumento de política pública.
+
+(2014 - 2016) **Coordinador Académico de Educación a Distancia en la Universidad Siglo 21**: Coordinación de actividades docentes para la planificación de actividades y diseño de material para la plataforma de e-larning. Coordinación de actividades docentes para los procesos de acreditación de carreras. Diseño de instrumentos para el seguimiento de alumnos y la gestión de la masividad en entornos virtuales.
