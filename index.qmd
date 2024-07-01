@@ -24,14 +24,14 @@ En el ámbito profesional, me he desempeñado como Consultor de diversos organis
 
 Tengo la enorme suerte de ser docente universitario, tanto en el grado, en donde me desempeño como Profesor Adjunto de Estadística II en la Facultad de Ciencias Sociales de la Universidad Nacional de Córdoba, para estudiantes de las Licenciaturas en Ciencia Política y en Sociología. Además, dicto diferentes cursos de posgrado vinculados a la aplicación de metodologías cuantitativas a las políticas públicas.
 
-### Educación
+
 :::
+
+### Educación
 
 -   **Doctor en Administración y Politica Pública** (tesis presentada) por la Facultad de Ciencias Sociales de la Universidad Nacional de Cordoba.
 
-```{=html}
-<!-- -->
-```
+
 -   **Magister en Administracion Publica** por la Facultad de Ciencias Sociales de la Universidad Nacional de Cordoba.
 
 -   **Licenciado en Economía** por la Facultad de Ciencias Económicas de la Universidad Nacional de Cordoba.
