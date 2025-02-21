@@ -7,7 +7,7 @@ website:
   title: "Hola! :)"
 
   page-footer:
-    left: "&copy; Copyright 2022, Juan Pablo Carranza"
+    left: "&copy; Copyright 2024, Juan Pablo Carranza"
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
 
   navbar:
@@ -23,6 +23,9 @@ website:
         
       - href: divulgacion/index.qmd
         text: Divulgación de la ciencia
+        
+      - href: recursos/index.qmd
+        text: Recursos pedagógicos
 
 
 format:
