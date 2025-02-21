@@ -2,6 +2,7 @@
 title: ""
 editor: visual
 bibliography: congresos.bib
+csl: journals.csl
 ---
 
 ### Publicaciones en congresos.

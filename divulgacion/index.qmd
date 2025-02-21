@@ -2,6 +2,7 @@
 title: ""
 editor: visual
 bibliography: reportes.bib
+csl: journals.csl
 ---
 
 ### Divulgación cientítfica.

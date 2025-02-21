@@ -2,9 +2,10 @@
 title: ""
 editor: visual
 bibliography: journals.bib
+csl: journals.csl
 ---
 
-### Artículos publicados en revistas.
+### Artículos publicados en revistas científicas.
 
 ---
 nocite: |
