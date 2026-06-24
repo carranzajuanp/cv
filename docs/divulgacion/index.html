@@ -93,17 +93,12 @@ div.csl-indent {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Juan Pablo Carranza</span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -142,23 +137,19 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#divulgación-científica." id="toc-divulgación-científica." class="nav-link active" data-scroll-target="#divulgación-científica.">Divulgación científica.</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
 
-<section id="divulgación-científica." class="level3">
+<section id="divulgación-científica." class="level3 lang-es">
 <h3 class="anchored" data-anchor-id="divulgación-científica.">Divulgación científica.</h3>
+</section>
+<section id="science-outreach." class="level3 lang-en">
+<h3 class="anchored" data-anchor-id="science-outreach.">Science outreach.</h3>
+</section>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-carranza1" class="csl-entry" role="listitem">
 <div class="csl-left-margin">1. </div><div class="csl-right-inline">Carranza, J. P. La modernización de los catastros en el marco del nuevo consenso fiscal. (2018).</div>
@@ -217,7 +208,6 @@ div.csl-indent {
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -798,6 +788,114 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>
+(function () {
+  var navLabels = {
+    "Inicio": "Home",
+    "Artículos científicos": "Scientific articles",
+    "Publicaciones en congresos": "Conference proceedings",
+    "Divulgación de la ciencia": "Science outreach",
+    "Recursos pedagógicos": "Teaching resources"
+  };
+
+  var navLabelsReverse = {};
+  Object.keys(navLabels).forEach(function (k) {
+    navLabelsReverse[navLabels[k]] = k;
+  });
+
+  var lang = localStorage.getItem("site-lang") || "es";
+
+  var tools = document.querySelector(".quarto-navbar-tools");
+  if (tools) {
+    var container = document.createElement("span");
+    container.id = "lang-toggle-container";
+    container.style.marginRight = "0.7em";
+    container.style.fontSize = "0.85em";
+    container.style.display = "inline-flex";
+    container.style.alignItems = "center";
+    container.style.gap = "0.15em";
+
+    var btnEs = document.createElement("a");
+    btnEs.id = "lang-btn-es";
+    btnEs.href = "javascript:void(0)";
+    btnEs.style.textDecoration = "none";
+    btnEs.style.cursor = "pointer";
+    btnEs.style.color = "inherit";
+    btnEs.style.padding = "0.15em 0.4em";
+    btnEs.style.borderRadius = "3px";
+    btnEs.innerHTML = '<img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f1e6-1f1f7.svg" alt="AR" style="width:1.1em;height:1.1em;vertical-align:-0.15em"> ES';
+
+    var sep = document.createElement("span");
+    sep.textContent = "|";
+    sep.style.opacity = "0.4";
+    sep.style.margin = "0 0.1em";
+    sep.style.color = "inherit";
+
+    var btnEn = document.createElement("a");
+    btnEn.id = "lang-btn-en";
+    btnEn.href = "javascript:void(0)";
+    btnEn.style.textDecoration = "none";
+    btnEn.style.cursor = "pointer";
+    btnEn.style.color = "inherit";
+    btnEn.style.padding = "0.15em 0.4em";
+    btnEn.style.borderRadius = "3px";
+    btnEn.innerHTML = '<img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f1ec-1f1e7.svg" alt="UK" style="width:1.1em;height:1.1em;vertical-align:-0.15em"> EN';
+
+    btnEs.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      lang = "es";
+      localStorage.setItem("site-lang", lang);
+      applyLang(lang);
+    });
+
+    btnEn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      lang = "en";
+      localStorage.setItem("site-lang", lang);
+      applyLang(lang);
+    });
+
+    container.appendChild(btnEs);
+    container.appendChild(sep);
+    container.appendChild(btnEn);
+    tools.insertBefore(container, tools.firstChild);
+  }
+
+  applyLang(lang);
+
+  function applyLang(lang) {
+    var esEls = document.querySelectorAll(".lang-es");
+    var enEls = document.querySelectorAll(".lang-en");
+
+    esEls.forEach(function (el) {
+      el.style.display = lang === "es" ? "block" : "none";
+    });
+    enEls.forEach(function (el) {
+      el.style.display = lang === "en" ? "block" : "none";
+    });
+
+    var bEs = document.getElementById("lang-btn-es");
+    var bEn = document.getElementById("lang-btn-en");
+    if (bEs && bEn) {
+      bEs.style.fontWeight = lang === "es" ? "700" : "400";
+      bEs.style.opacity = lang === "es" ? "1" : "0.5";
+      bEn.style.fontWeight = lang === "en" ? "700" : "400";
+      bEn.style.opacity = lang === "en" ? "1" : "0.5";
+    }
+
+    document.querySelectorAll(".navbar .nav-link").forEach(function (el) {
+      var text = el.textContent.trim();
+      if (lang === "en" && navLabels[text]) {
+        el.textContent = navLabels[text];
+      } else if (lang === "es" && navLabelsReverse[text]) {
+        el.textContent = navLabelsReverse[text];
+      }
+    });
+  }
+})();
+</script>
 
 
 
