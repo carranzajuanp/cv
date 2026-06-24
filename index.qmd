@@ -12,9 +12,6 @@ about:
     - icon: github
       text: GitHub
       href: https://github.com/carranzajuanp
-    - icon: instagram
-      text: Instagram
-      href: https://www.instagram.com/carranzajuanp
     - text: ORCID
       href: https://orcid.org/0000-0003-4793-1323
 
