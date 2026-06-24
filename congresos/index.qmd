@@ -5,7 +5,13 @@ bibliography: congresos.bib
 csl: journals.csl
 ---
 
+::: {.lang-es}
 ### Publicaciones en congresos.
+:::
+
+::: {.lang-en}
+### Conference proceedings.
+:::
 
 ---
 nocite: |

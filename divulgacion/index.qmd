@@ -5,7 +5,13 @@ bibliography: reportes.bib
 csl: journals.csl
 ---
 
-### Divulgación cientítfica.
+::: {.lang-es}
+### Divulgación científica.
+:::
+
+::: {.lang-en}
+### Science outreach.
+:::
 
 ---
 nocite: |

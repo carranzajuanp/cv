@@ -4,7 +4,13 @@ editor: visual
 bibliography: journals.bib
 ---
 
+::: {.lang-es}
 ### Artículos publicados en revistas.
+:::
+
+::: {.lang-en}
+### Articles published in journals.
+:::
 
 ---
 nocite: |

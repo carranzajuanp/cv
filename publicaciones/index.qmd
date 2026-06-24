@@ -5,7 +5,13 @@ bibliography: journals.bib
 csl: journals.csl
 ---
 
+::: {.lang-es}
 ### Artículos publicados en revistas científicas.
+:::
+
+::: {.lang-en}
+### Articles published in scientific journals.
+:::
 
 ---
 nocite: |

@@ -4,16 +4,17 @@ project:
 
 website:
   page-navigation: true
-  title: "Hola! :)"
+  title: "Juan Pablo Carranza"
 
   page-footer:
-    left: "&copy; Copyright 2024, Juan Pablo Carranza"
+    left: "&copy; Copyright 2026, Juan Pablo Carranza"
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
 
   navbar:
+    title: false
     left:
       - href: index.qmd
-        text: Home
+        text: Inicio
 
       - href: publicaciones/index.qmd
         text: Artículos científicos
@@ -28,13 +29,17 @@ website:
         text: Recursos pedagógicos
 
 
+csl: journals.csl
+
 format:
   html:
     theme:
       light: cosmo
       dark: darkly
     css: styles.css
-    toc: true
+    toc: false
+    include-after-body:
+      - file: lang-toggle.js
 
 
 
